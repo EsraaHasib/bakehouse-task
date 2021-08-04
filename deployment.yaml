@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bakehouse-deployment
+  labels:
+    app: bakeouse
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bakeouse
+  template:
+    metadata:
+      labels:
+        app: bakeouse
+    spec:
+      containers:
+      - name: bakeouse
+        image: esraahasib/cicd:v1
+        ports:
+        - containerPort: 80
